@@ -1,0 +1,107 @@
+CODE:
+~~~~
+
+
+import time
+
+def introduction():
+    print("Welcome to the Text Adventure Game!")
+    time.sleep(1)
+    print("You find yourself standing in front of a mysterious cave.")
+    time.sleep(1)
+    print("Your goal is to reach the treasure hidden deep inside.")
+    time.sleep(1)
+    print("Be careful, as your choices will determine your fate!\n")
+
+def make_choice(choices):
+    for i, choice in enumerate(choices, 1):
+        print(f"{i}. {choice}")
+
+    while True:
+        try:
+            choice = int(input("Enter the number of your choice: "))
+            if 1 <= choice <= len(choices):
+                return choice
+            else:
+                print("Invalid choice. Try again.")
+        except ValueError:
+            print("Invalid input. Enter a number.")
+
+def explore_cave():
+    print("You enter the dark cave and hear strange noises.")
+    time.sleep(1)
+    print("Do you:")
+    choices = ["Investigate the noise", "Run away"]
+    choice = make_choice(choices)
+
+    if choice == 1:
+        print("You discover a friendly creature. It guides you deeper into the cave.")
+        time.sleep(1)
+        return True
+    else:
+        print("You run away in fear.")
+        time.sleep(1)
+        return False
+
+def cross_bridge():
+    print("You come across a rickety bridge over a deep gorge.")
+    time.sleep(1)
+    print("Do you:")
+    choices = ["Cross the bridge", "Look for another way"]
+    choice = make_choice(choices)
+
+    if choice == 1:
+        print("You successfully cross the bridge.")
+        time.sleep(1)
+        return True
+    else:
+        print("You decide to find another path.")
+        time.sleep(1)
+        return False
+
+def find_treasure():
+    print("Congratulations! You find the hidden treasure.")
+    time.sleep(1)
+    print("You are a true adventurer!")
+
+def main():
+    introduction()
+
+    if explore_cave():
+        if cross_bridge():
+            find_treasure()
+        else:
+            print("You gave up on the adventure. Game Over.")
+    else:
+        print("You gave up on the adventure. Game Over.")
+
+if __name__ == "__main__":
+    main()
+_______________________________________________________________________
+_______________________________________________________________________
+OUTPUT:
+~~~~~~
+
+Welcome to the Text Adventure Game!
+You find yourself standing in front of a mysterious cave.
+Your goal is to reach the treasure hidden deep inside.
+Be careful, as your choices will determine your fate!
+
+You enter the dark cave and hear strange noises.
+Do you:
+1. Investigate the noise
+2. Run away
+Enter the number of your choice: 1
+You discover a friendly creature. It guides you deeper into the cave.   
+You come across a rickety bridge over a deep gorge.
+Do you:
+1. Cross the bridge
+2. Look for another way
+Enter the number of your choice: 1
+You successfully cross the bridge.
+Congratulations! You find the hidden treasure.
+You are a true adventurer!
+
+
+_________________________________________________________________________
+_________________________________________________________________________
